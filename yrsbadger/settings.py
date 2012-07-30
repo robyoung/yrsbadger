@@ -4,6 +4,13 @@ import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+MINIBADGE_ISSUER = {
+  "origin": "http://www.youngrewiredstate.org",
+  "name": "Young Rewired State",
+  "org": "Young Rewired State",
+  "contact": "rob@roryoung.co.uk"
+}
+
 ADMINS = (
   ('Rob Young', 'rob@roryoung.co.uk'),
 )
