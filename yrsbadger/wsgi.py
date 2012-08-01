@@ -14,6 +14,14 @@ framework.
 
 """
 import os
+import sys
+import site
+
+sys.stdout = sys.stderr
+
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+site.addsitedir(os.path.join(ROOT, 'venv/lib/python2.7/site-packages'))
+sys.path.append(os.path.join(ROOT))
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "yrsbadger.settings")
 
