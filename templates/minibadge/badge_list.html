@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+    <h1>All Badges</h1>
+    <ul>
+        {% for badge in badge_list %}
+            <li>
+                <a href="{{ badge.get_absolute_url }}">{{ badge.title }}</a>
+
+                <p>{{ badge.description }}</p>
+
+                <img src="{{ MEDIA_URL }}/uploads/{{ badge.image }}" alt="" height="100" width="100">
+            </li>
+        {% endfor %}
+
+    </ul>
+{% endblock %}
