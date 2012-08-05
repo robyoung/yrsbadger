@@ -10,21 +10,15 @@ class Command(BaseCommand):
   def handle(self, *args, **options):
     client = SpreadsheetAPI(os.environ["EMAIL"], os.environ["PASS"], "yrsbadger")
 
-    worksheet = client.get_worksheet("0Ar9L6jllB7SPdFd3Y0lBMDdOODM1aFNJUUJ6Zy1DbkE", 1)
+    worksheet = client.get_worksheet("0AuaHiEjutiMUdE5SWTNvTUJTdlJ1ZXV3dUxoQkh6SGc", 1)
 
     for row in worksheet.get_rows():
-      # find the badge
-      badge = Badge.objects.filter(title=row["title"])
-      if not len(badge):
-        print "Could not find badge [%s]" % row["title"]
-        continue
-      badge = badge[0]
-
-      # check if there's not already been one for this user
-      award = Award.objects.filter(badge=badge, email=row["email"])
-      if len(award):
-        print "Already send award for %s to %s" % (badge, row["email"])
-        continue
-      award = Award.objects.create(badge=badge, email=row["email"])
-      award.save()
-      award.send()
+      for title in map(str.strip, row["badgestoaward"].split(",")):
+        try:
+          badge = Badge.objects.get(title=title)
+          if Award.objects.filter(badge=badge, email=row["youngpersonsemailaddress"]):
+            award = Award.objects.create(badge=badge, email=row["youngpersonsemailaddress"])
+            award.save()
+            award.send()
+        except Badge.DoesNotExist:
+          print("ERROR: Badge does not exist [%s] for %s" % (title, row["youngpersonsemailaddress"]))
