@@ -16,7 +16,9 @@ class Command(BaseCommand):
       for title in map(str.strip, row["badgestoaward"].split(",")):
         try:
           badge = Badge.objects.get(title=title)
-          if Award.objects.filter(badge=badge, email=row["youngpersonsemailaddress"]):
+          if not row["youngpersonsemailaddress"]:
+            print("ERROR: No email address")
+          elif not Award.objects.filter(badge=badge, email=row["youngpersonsemailaddress"]):
             award = Award.objects.create(badge=badge, email=row["youngpersonsemailaddress"])
             award.save()
             award.send()
