@@ -27,4 +27,4 @@ class Command(BaseCommand):
         continue
       award = Award.objects.create(badge=badge, email=row["email"])
       award.save()
-      # TODO: send the email
+      award.send()
