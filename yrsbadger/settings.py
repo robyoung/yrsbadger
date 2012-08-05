@@ -8,7 +8,7 @@ MINIBADGE_ISSUER = {
   "origin": "http://www.youngrewiredstate.org",
   "name": "Young Rewired State",
   "org": "Young Rewired State",
-  "contact": "rob@roryoung.co.uk"
+  "contact": "dave@bowsy.co.uk"
 }
 
 ADMINS = (
