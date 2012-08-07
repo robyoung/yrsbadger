@@ -135,4 +135,73 @@ li.badge p
 }
 
 
+.single-badge
+{
+	list-style: none;
+	width: 960px;
+	margin: 25px 20px 0 0;
+	padding: 0;
+	float: left;
+	border: 2px solid rgb(182, 51, 34);
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 5px 5px 5px #ccc;
+}
+
+
+.single-badge h2
+{
+	font-size: 3em;
+	margin: 0;
+	padding: 15px 20px 10px 20px;
+	background: rgb(182, 51, 34);
+	color: #fff;
+	display: block;
+	height: 60px;
+	-webkit-border-radius: 7px 7px 0px 0px;
+	-moz-border-radius: 7px 7px 0px 0px;
+	border-radius: 7px 7px 0px 0px;
+}
+
+
+.single-badge img
+{
+	margin: 20px 40px 50px 20px;
+	float: left;
+}
+
+
+.single-badge p
+{
+	margin: 50px 20px 20px 0;
+	font-size: 2em;
+}
+
+
+#back
+{
+	color: rgb(182, 51, 34);
+	font-size: 1.5em;
+}
+
+
+#back a
+{
+	color: rgb(182, 51, 34);
+	text-decoration: underline;
+}
+
+
+#back a:hover
+{
+	color: rgb(182, 51, 34);
+	text-decoration: none;
+}
+
+
+
+
+
 
